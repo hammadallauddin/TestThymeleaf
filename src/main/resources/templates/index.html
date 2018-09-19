@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8" />
+      <title>Welcome</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+      <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+   </head>
+   <body>
+      <div class="container">
+      	<h1>Welcome</h1>
+	      <h2 th:utext="${message}">..!..</h2>
+	       
+	      <!--  
+	       
+	         In Thymeleaf the equivalent of
+	         JSP's ${pageContext.request.contextPath}/edit.html
+	         would be @{/edit.html}
+	          
+	         -->
+	          
+	      <a class="btn btn-success" th:href="@{/personList}">Person List</a>  
+	       
+      </div>
+   </body>
+    
+</html>

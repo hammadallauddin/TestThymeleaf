@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8" />
+      <title>Add Person</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+      <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+   </head>
+   <body>
+     <div class="container">
+     	 <div class="row">
+     	 	<div class="col-xs-4">
+     	 		<h1>Create a Person</h1>
+     	 	</div>
+     	 </div>
+       
+      <!--  
+         In Thymeleaf the equivalent of
+         JSP's ${pageContext.request.contextPath}/edit.html
+         would be @{/edit.html}         
+         -->
+          
+      <form 
+      	 class="form-group"
+      	 th:action="@{/addPerson}"
+         th:object="${personForm}" method="POST">
+         <div class="row">
+         	<div class="col-xs-4">
+	         	First Name:
+	         	<input class="form-control" type="text" th:field="*{firstName}" />    
+	         </div>
+         </div>
+          <br/>
+          <div class="row">
+          	<div class="col-xs-4">
+	         	Last Name:
+	         	<input class="form-control col-xs-4" type="text" th:field="*{lastName}" />    
+	         </div>
+          </div>
+         <br/> 
+         <input class="btn btn-success col-xs-4" type="submit" value="Create" />
+      </form>
+       
+      <br/>
+       
+      <!-- Check if errorMessage is not null and not empty -->
+       
+      <div th:if="${errorMessage}" th:utext="${errorMessage}"
+         style="color:red;font-style:italic;">
+         ...
+      </div>
+       
+     </div>
+   </body>
+</html>
